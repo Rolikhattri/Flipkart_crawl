@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyText
+  title: MyText
+  price: 1.5
+  mrp: 1.5
+  discount: 1.5
+  rating: 1.5
+  rating_count: MyString
+  review_count: MyString
+  seller: MyString
+  image: MyText
+  devlivery_date: MyString
+  soldout: MyString
+
+two:
+  url: MyText
+  title: MyText
+  price: 1.5
+  mrp: 1.5
+  discount: 1.5
+  rating: 1.5
+  rating_count: MyString
+  review_count: MyString
+  seller: MyString
+  image: MyText
+  devlivery_date: MyString
+  soldout: MyString

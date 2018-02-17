@@ -1,0 +1,60 @@
+<% @product = Product.new %>
+<%= form_for(@product) do |f| %>
+  <div class="field" style="float: left; width: 70%;" >
+    <%= f.label :url %>    
+    <%= f.text_area :url, style: "width: 90%; height: 25px; margin: 0;" %>
+  </div>
+
+  <div class="actions"style="float: left" >
+    <%= f.submit "Crawl"%>
+  </div>
+<% end %>
+<br/><br/><br/>
+Your Total Crawled Products: <%= @product_count %>
+<br/>
+
+<%= link_to "Download all", dashboard_products_path(format: "csv") %>
+
+<h3> Your Latest Crawled Products </h3>
+<div class="card-body" style="width:100%;" >
+  <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+    <table class="table table-bordered dataTable" id="dataTable" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+      <thead>
+        <tr >
+          <th>Url</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Mrp</th>
+          <th>Discount</th>
+          <th>Rating</th>
+          <th>Rating count</th>
+          <th>Review count</th>
+          <th>Seller</th>
+          <th>Devlivery date</th>
+          <th>Soldout</th>
+          <th colspan="3"><Actions/th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.url %></td>
+            <td><%= product.title %></td>
+            <td><%= product.price %></td>
+            <td><%= product.mrp %></td>
+            <td><%= product.discount %> </td>
+            <td><%= product.rating %></td>
+            <td><%= product.rating_count %></td>
+            <td><%= product.review_count %></td>
+            <td><%= product.seller %></td>
+            <td><%= product.devlivery_date %></td>
+            <td><%= product.soldout %></td>
+            <td><%= link_to 'Show', product %></td>
+            <td><%= link_to 'Crawl Again', product_recrawl_path(product) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
