@@ -10,53 +10,51 @@
     <%= f.submit "Crawl"%>
   </div>
 <% end %>
-<br/><br/><br/>
-Your Total Crawled Products: <%= @product_count %>
-<br/>
-
-<%= link_to "Download all", dashboard_products_path(format: "csv") %>
+<br/><br/><br/>  
+<h4>Your Total Crawled Products: <%= @product_count %></h4> 
+<%= link_to "Download all", dashboard_products_path(format: "csv"), :class => 'btn btn-default', :style => "float: right;"  %>
 
 <h3> Your Latest Crawled Products </h3>
 <div class="card-body" style="width:100%;" >
   <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
     <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:url) %></th>
-      <th><%= model_class.human_attribute_name(:price) %></th>
-      <th><%= model_class.human_attribute_name(:mrp) %></th>
-      <th><%= model_class.human_attribute_name(:discount) %></th>
-      <th><%= model_class.human_attribute_name(:rating) %></th>
-      <th><%= model_class.human_attribute_name(:seller) %></th>
-      <th><%= model_class.human_attribute_name(:devlivery_date) %></th>
-      <th><%= model_class.human_attribute_name(:soldout) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:crawled) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.title, product_path(product)  %></td>
-        <td><%= product.url %></td>
-        <td><%= product.price %></td>
-        <td><%= product.mrp %></td>
-        <td><%= product.discount %></td>
-        <td><%= product.rating %></td>
-        <td><%= product.seller %></td>
-        <td><%= product.devlivery_date %></td>
-        <td><%= product.soldout %></td>
-        <td><%= product.user_id %></td>
-        <td><%= product.created_at.to_date %></td>
-        <td>
-          <%= link_to 'Recrawl', product_recrawl_path(product, :url => product.url), :class => 'btn btn-default btn-xs' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:title) %></th>
+          <th><%= model_class.human_attribute_name(:url) %></th>
+          <th><%= model_class.human_attribute_name(:price) %></th>
+          <th><%= model_class.human_attribute_name(:mrp) %></th>
+          <th><%= model_class.human_attribute_name(:discount) %></th>
+          <th><%= model_class.human_attribute_name(:rating) %></th>
+          <th><%= model_class.human_attribute_name(:seller) %></th>
+          <th><%= model_class.human_attribute_name(:devlivery_date) %></th>
+          <th><%= model_class.human_attribute_name(:soldout) %></th>
+          <th><%= model_class.human_attribute_name(:user_id) %></th>
+          <th><%= model_class.human_attribute_name(:crawled) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= link_to product.title, product_path(product)  %></td>
+            <td><%= product.url %></td>
+            <td><%= product.price %></td>
+            <td><%= product.mrp %></td>
+            <td><%= product.discount %></td>
+            <td><%= product.rating %></td>
+            <td><%= product.seller %></td>
+            <td><%= product.devlivery_date %></td>
+            <td><%= product.soldout %></td>
+            <td><%= product.user_id %></td>
+            <td><%= product.created_at.to_date %></td>
+            <td>
+              <%= link_to 'Recrawl', product_recrawl_path(product), :class => 'btn btn-default btn-xs' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

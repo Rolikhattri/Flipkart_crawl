@@ -36,8 +36,9 @@ class ProductsController < ApplicationController
   end
 
   def recrawl
-    params = Product::crawl_data(url)
-    product_params = params
+    url = Product.find(params[:product_id]).url
+    param = Product::crawl_data(url)
+    product_params = param
 
     @product = current_user.products.build(product_params)
 

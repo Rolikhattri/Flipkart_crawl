@@ -14,8 +14,8 @@
 <%= nav_bar fixed: :top, brand: "Flipkart Crawler" do %>
     <%= menu_group do %>
         <%if (current_user)%>
-		  <%= link_to "Dashboard", dashboard_products_path %>
-		  <%= link_to "Your Products", products_path %>
+		  <%= menu_item "Dashboard", dashboard_products_path %>
+		  <%= menu_item "Your Products", products_path %>
 		<% end %>
     <% end %>
     <% if current_user %>
