@@ -20,6 +20,8 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    byebug
+    0
   end
 
   def dashboard
@@ -34,8 +36,6 @@ class ProductsController < ApplicationController
   end
 
   def recrawl
-    url = Product.find(10).url
-
     params = Product::crawl_data(url)
     product_params = params
 
