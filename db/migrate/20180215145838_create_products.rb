@@ -13,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text :image
       t.string :devlivery_date
       t.string :soldout
-      t.string :user_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
