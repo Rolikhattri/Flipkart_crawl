@@ -20,11 +20,11 @@
     <% end %>
     <% if current_user %>
 	    <%= menu_group pull: :right do %>
-	        <%= menu_item "Logout", destroy_user_session_path %>
+	        <%= menu_item "Logout", destroy_user_session_path, :style=>'font-weight: bold;', :method => :delete %>
 	    <% end %>
     <% else %>
         <%= menu_group pull: :right do %>
-	        <%= menu_item "Login", new_user_session_path %>
+	        <%= menu_item "Login", new_user_session_path, :style=>'font-weight: bold;' %>
 	    <% end %>
     <% end %>
 <% end %>

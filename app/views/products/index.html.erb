@@ -4,7 +4,7 @@
 </div>
 
 <br/>
-<h4>Your Total Crawled Products: <%= @product_count %></h4> 
+<h4>Your Total Crawled Products: <%= @products.count %></h4> 
 <%= link_to "Download all", dashboard_products_path(format: "csv"), :class => 'btn btn-default', :style => "float: right;"  %>
 
 <table class="table table-striped">
@@ -28,7 +28,7 @@
         <% @products.each do |product| %>
           <tr>
             <td><%= link_to product.title, product_path(product)  %></td>
-            <td><%= product.url %></td>
+            <td><%= truncate(product.url, :length => 100) %></td>
             <td><%= product.price %></td>
             <td><%= product.mrp %></td>
             <td><%= product.discount %></td>

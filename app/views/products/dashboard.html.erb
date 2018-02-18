@@ -2,12 +2,12 @@
 <% @product = Product.new %>
 <%= form_for(@product) do |f| %>
   <div class="field" style="float: left; width: 70%;" >
-    <%= f.label :url %>    
-    <%= f.text_area :url, style: "width: 90%; height: 25px; margin: 0;" %>
+    <%= f.label :url, class: "hidden"%>    
+    <%= f.text_field :url, style: "width: 90%; height: 25px; margin: 0;", placeholder: "Enter URL to crawl" %>
   </div>
 
   <div class="actions"style="float: left" >
-    <%= f.submit "Crawl"%>
+    <%= f.submit "Crawl", :class => 'btn btn-default'%>
   </div>
 <% end %>
 <br/><br/><br/>  
@@ -38,7 +38,7 @@
         <% @products.each do |product| %>
           <tr>
             <td><%= link_to product.title, product_path(product)  %></td>
-            <td><%= product.url %></td>
+            <td><%= truncate(product.url, :length => 100) %></td>
             <td><%= product.price %></td>
             <td><%= product.mrp %></td>
             <td><%= product.discount %></td>

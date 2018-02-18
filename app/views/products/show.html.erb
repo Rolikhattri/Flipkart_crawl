@@ -11,7 +11,7 @@
 <div id="data_display" style="float: left; max-width: 500px;" >
   <dl class="dl-horizontal">
     <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
-    <dd><%= @product.url %></dd>
+    <dd><%= truncate(@product.url, :length => 100) %></dd>
     <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
     <dd><%= @product.title %></dd>
     <dt><strong><%= model_class.human_attribute_name(:mrp) %>:</strong></dt>
